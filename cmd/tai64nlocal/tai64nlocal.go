@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/paulhammond/tai64"
+	"github.com/vektra/tai64n"
 )
 
 func processRow(text string) {
@@ -20,12 +20,12 @@ func processRow(text string) {
 		fmt.Println(text)
 		return
 	}
-	time, err := tai64.ParseTai64n(splited[0])
-	if err != nil {
+	time := tai64n.ParseTAI64NLabel(splited[0])
+	if time == nil {
 		fmt.Println(text)
 		return
 	}
-	fmt.Println(time.Format("2006-01-02 15:04:05.000000000"), splited[1])
+	fmt.Println(time.Time().Format("2006-01-02 15:04:05.000000000"), splited[1])
 }
 
 func main() {
