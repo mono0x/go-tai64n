@@ -25,7 +25,7 @@ func processRow(text string) {
 		fmt.Println(text)
 		return
 	}
-	fmt.Println(time.Time().Format("2006-01-02 15:04:05.000000000"), splited[1])
+	fmt.Printf("%s %s\r\n", time.Time().Format("2006-01-02 15:04:05.000000000"), splited[1])
 }
 
 func main() {
