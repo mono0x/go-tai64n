@@ -12,17 +12,17 @@ import (
 
 func processRow(text string) {
 	if !strings.HasPrefix(text, "@") {
-		fmt.Println(text)
+		fmt.Printf("%s\r\n", text)
 		return
 	}
 	splited := strings.SplitN(text, " ", 2)
 	if len(splited) != 2 {
-		fmt.Println(text)
+		fmt.Printf("%s\r\n", text)
 		return
 	}
 	time := tai64n.ParseTAI64NLabel(splited[0])
 	if time == nil {
-		fmt.Println(text)
+		fmt.Printf("%s\r\n", text)
 		return
 	}
 	fmt.Printf("%s %s\r\n", time.Time().Format("2006-01-02 15:04:05.000000000"), splited[1])
